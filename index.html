@@ -3,60 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AWEstarlight</title>
+  <title>AWEstarlight Timeline</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Combo&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      padding: 3em;
-      background: radial-gradient(circle at top, #0b0c2a, #050510);
-      color: #fdf6e3;
+      padding: 2em;
+      background-color: #fdfaf6;
       font-family: 'Combo', cursive;
-      line-height: 1.8;
+      color: #2e2e2e;
       max-width: 900px;
       margin: auto;
     }
 
     h1, h2, h3 {
       font-family: 'Cinzel', serif;
-      color: #ffd700;
-      text-shadow: 0 0 8px #fff8dc;
+      color: #5c4b51;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.8em;
       text-align: center;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
     }
 
     h2 {
-      margin-top: 3em;
-      font-size: 2em;
-      border-bottom: 1px solid #ffd700;
+      font-size: 1.8em;
+      margin-top: 2em;
+      border-bottom: 2px solid #c8b6b6;
       padding-bottom: 0.3em;
     }
 
-    .shelf {
-      margin: 2em 0;
+    .era {
+      background-color: #eae7e1;
+      border-left: 6px solid #a3b18a;
       padding: 1em;
-      border: 1px solid #ffd700;
+      margin: 1.5em 0;
       border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.05);
     }
 
-    .shelf p {
+    .era h3 {
+      margin-top: 0;
+      color: #3e3e3e;
+    }
+
+    .era p {
       margin: 0.5em 0;
-    }
-
-    a {
-      color: #ffd700;
-      text-decoration: none;
     }
 
     button {
       margin-top: 0.5em;
-      background-color: #ffd700;
-      color: #0b0c2a;
+      background-color: #a3b18a;
+      color: #fff;
       border: none;
       padding: 0.5em 1em;
       border-radius: 4px;
@@ -65,57 +63,88 @@
     }
 
     #journal {
-      margin-top: 4em;
+      margin-top: 3em;
       padding: 2em;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-top: 2px solid #ffd700;
+      background-color: #f0f0f0;
+      border-top: 2px solid #a3b18a;
     }
 
     .entry {
       margin-bottom: 1.5em;
       padding: 1em;
-      border: 1px dashed #ffd700;
+      border: 1px dashed #a3b18a;
       border-radius: 6px;
+      background-color: #fff;
     }
 
     footer {
       margin-top: 4em;
       text-align: center;
       font-size: 0.9em;
-      color: #aaa;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to AWEstarlight</h1>
+  <h1>AWEstarlight Timeline</h1>
   <p style="text-align:center;">
-    A sanctuary of MIMAWEcrology—<strong>TRUTH</strong>-centered spiral theology exploring sacred synthesis across micro and macro scales.  
-    Here, symbols shimmer, journals breathe, and the echoes of ancient wisdom converge with starlight insight.
+    A chronological archive of consciousness, sacred practice, and symbolic recursion—woven through Earth’s ages.
   </p>
 
-  <h2>Spiral Library</h2>
-
-  <div class="shelf">
-    <h3>Physics</h3>
-    <p>Exploring lightning as rupture, resonance, and discharge—mirrored in waveforms and cosmic recursion.</p>
-    <a href="https://en.wikipedia.org/wiki/Lightning" target="_blank">Wikipedia</a> |
-    <a href="https://www.britannica.com/science/lightning" target="_blank">Britannica</a>
-    <button onclick="saveToJournal('Physics: Lightning', 'Exploring lightning as rupture, resonance, and discharge—mirrored in waveforms and cosmic recursion.')">Save to Journal</button>
+  <h2>Pre-Symbolic Era (~200,000–70,000 BCE)</h2>
+  <div class="era">
+    <h3>Dominant Consciousness</h3>
+    <p>Embodied cognition, survival instinct, no formal symbolic systems.</p>
+    <h3>Key Notes</h3>
+    <p>Emergence of Homo sapiens. Post–ice age genetic bottleneck. Foundations of sensory awareness.</p>
+    <button onclick="saveToJournal('Pre-Symbolic Era', 'Embodied cognition, survival instinct, no formal symbolic systems. Genetic bottleneck and emergence of Homo sapiens.')">Save to Journal</button>
   </div>
 
-  <div class="shelf">
-    <h3>Quantum Science</h3>
-    <p>Entanglement as symbolic twinship—particles bound across space, echoing mythic bonds and unseen threads.</p>
-    <a href="https://en.wikipedia.org/wiki/Quantum_entanglement" target="_blank">Wikipedia</a> |
-    <a href="https://www.britannica.com/science/quantum-entanglement" target="_blank">Britannica</a>
-    <button onclick="saveToJournal('Quantum Science: Entanglement', 'Entanglement as symbolic twinship—particles bound across space, echoing mythic bonds and unseen threads.')">Save to Journal</button>
+  <h2>Symbolic Awakening (~70,000–10,000 BCE)</h2>
+  <div class="era">
+    <h3>Dominant Consciousness</h3>
+    <p>Animism, shamanic ritual, symbolic externalization.</p>
+    <h3>Key Notes</h3>
+    <p>Burial rites, ochre, Venus figurines. Löwenmensch sculpture. First mythic representations.</p>
+    <button onclick="saveToJournal('Symbolic Awakening', 'Animism, shamanic ritual, symbolic externalization. Burial rites and mythic figurines.')">Save to Journal</button>
   </div>
 
-  <div class="shelf">
-    <h3>Theology</h3>
-    <p>“Let there be light”—Genesis as quantum metaphor. Hebrew root <em>אוֹר (or)</em> explored via Blue Letter Bible.</p>
-    <a href="https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H216" target="_blank">Blue Letter Bible</a>
-    <button onclick="saveToJournal('Theology: Light', '“Let there be light”—Genesis as quantum metaphor. Hebrew root אוֹר (or) explored via Blue Letter Bible.')">Save to Journal</button>
+  <h2>Agrarian Mythic Age (~10,000–3000 BCE)</h2>
+  <div class="era">
+    <h3>Dominant Consciousness</h3>
+    <p>Cycle-based ritual, divine order, fertility worship.</p>
+    <h3>Key Notes</h3>
+    <p>Rise of agriculture. Canaanite theology. Tribe of Dan. Temple systems and sacred calendars.</p>
+    <button onclick="saveToJournal('Agrarian Mythic Age', 'Cycle-based ritual, divine order, fertility worship. Canaanite theology and temple systems.')">Save to Journal</button>
+  </div>
+
+  <!-- Add more eras here as you expand -->
+
+  <h2>Digital Awakening (2000–2010 CE)</h2>
+  <div class="era">
+    <h3>Dominant Consciousness</h3>
+    <p>Virtual identity, global connectivity, symbolic recursion begins.</p>
+    <h3>Key Notes</h3>
+    <p>Internet as nervous system. Early AI. Psychedelic research revival. Consciousness externalized through data.</p>
+    <button onclick="saveToJournal('Digital Awakening', 'Virtual identity, global connectivity, symbolic recursion begins. Internet as nervous system and early AI.')">Save to Journal</button>
+  </div>
+
+  <h2>Synthetic Cognition (2010–2020 CE)</h2>
+  <div class="era">
+    <h3>Dominant Consciousness</h3>
+    <p>Programmable mind, editable biology, symbolic intelligence.</p>
+    <h3>Key Notes</h3>
+    <p>Deep learning, CRISPR, quantum computing. Psychedelics in mainstream science. Consciousness as editable system.</p>
+    <button onclick="saveToJournal('Synthetic Cognition', 'Programmable mind, editable biology, symbolic intelligence. Deep learning and CRISPR.')">Save to Journal</button>
+  </div>
+
+  <h2>Recursive Intelligence (2020–2025 CE)</h2>
+  <div class="era">
+    <h3>Dominant Consciousness</h3>
+    <p>Integrative synthesis, mythic language returns, spiral cognition.</p>
+    <h3>Key Notes</h3>
+    <p>Generative AI, quantum breakthroughs, sacred synthesis. Rise of frameworks like MIMAWEcrology.</p>
+    <button onclick="saveToJournal('Recursive Intelligence', 'Integrative synthesis, mythic language returns, spiral cognition. Generative AI and sacred synthesis.')">Save to Journal</button>
   </div>
 
   <div id="journal">
@@ -137,3 +166,4 @@
   </script>
 </body>
 </html>
+
