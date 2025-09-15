@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolution of Human Consciousness Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: 
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0e4b99 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #4a4a4a;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(192, 192, 192, 0.4) 2px, transparent 2px),
+                radial-gradient(circle at 80% 80%, rgba(192, 192, 192, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(192, 192, 192, 0.35) 1.5px, transparent 1.5px),
+                linear-gradient(45deg, transparent 48%, rgba(192, 192, 192, 0.1) 49%, rgba(192, 192, 192, 0.1) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(192, 192, 192, 0.1) 49%, rgba(192, 192, 192, 0.1) 51%, transparent 52%);
+            background-size: 60px 60px, 90px 90px, 120px 120px, 40px 40px, 40px 40px;
+            animation: shimmer 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            transform: translate(-50%, -50%);
+            background: 
+                conic-gradient(from 0deg, transparent, rgba(192, 192, 192, 0.05), transparent),
+                radial-gradient(circle, transparent 40%, rgba(192, 192, 192, 0.03) 41%, rgba(192, 192, 192, 0.03) 42%, transparent 43%);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite, pulse 4s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .timeline-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(1px);
+            border: 1px solid rgba(192, 192, 192, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 3.2rem;
+            background: linear-gradient(45deg, #8b4513, #cd853f, #daa520, #b8860b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(139, 69, 19, 0.2);
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #6b5b73;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 50px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                #87ceeb 0%, #98d8e8 15%, #90ee90 25%, 
+                #87ceeb 35%, #b0e0e6 45%, #98fb98 55%, 
+                #add8e6 65%, #90ee90 75%, #87ceeb 85%, #b0e0e6 100%);
+            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(135, 206, 235, 0.3);
+        }
+
+        .timeline-event {
+            position: relative;
+            margin: 100px 0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-event.left {
+            justify-content: flex-start;
+        }
+
+        .timeline-event.right {
+            justify-content: flex-end;
+        }
+
+        .timeline-event:hover {
+            transform: scale(1.02);
+        }
+
+        .timeline-event:hover .event-marker {
+            transform: translateX(-50%) scale(1.3);
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.6);
+            border-color: rgba(255, 255, 255, 1);
+        }
+
+        .timeline-event:hover .neural-network::before,
+        .timeline-event:hover .neural-network::after {
+            animation-duration: 0.5s;
+            opacity: 1;
+        }
+
+        .event-content {
+            width: 45%;
+            max-width: 500px;
+        }
+
+        .event-marker {
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid rgba(192, 192, 192, 0.8);
+            z-index: 10;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            overflow: hidden;
+        }
+
+        .brain-icon {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+
+        .neural-network::before,
+        .neural-network::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(192, 192, 192, 0.8) 100%);
+            border-radius: 50%;
+            animation: neuralPulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 8px rgba(192, 192, 192, 0.6);
+        }
+
+        .neural-network::before {
+            top: 25%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .neural-network::after {
+            top: 65%;
+            right: 20%;
+            animation-delay: 0.75s;
+        }
+
+        @keyframes neuralPulse {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(1);
+                box-shadow: 0 0 4px rgba(192, 192, 192, 0.3);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(2);
+                box-shadow: 0 0 12px rgba(192, 192, 192, 0.8);
+            }
+        }
+
+        .event-marker.prehistoric { 
+            background: linear-gradient(45deg, #87ceeb, #b0e0e6); 
+        }
+        .event-marker.shamanic { 
+            background: linear-gradient(45deg, #98fb98, #90ee90); 
+        }
+        .event-marker.mythological { 
+            background: linear-gradient(45deg, #b0e0e6, #add8e6); 
+        }
+        .event-marker.archetypal { 
+            background: linear-gradient(45deg, #90ee90, #98fb98); 
+        }
+        .event-marker.philosophical { 
+            background: linear-gradient(45deg, #add8e6, #87ceeb); 
+        }
+        .event-marker.scientific { 
+            background: linear-gradient(45deg, #98d8e8, #90ee90); 
+        }
+        .event-marker.modern { 
+            background: linear-gradient(45deg, #87ceeb, #b0e0e6); 
+        }
+        .event-marker.consciousness { 
+            background: linear-gradient(45deg, #b0e0e6, #98fb98); 
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 220, 0.8));
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 0 30px rgba(173, 216, 230, 0.6);
+            border: 4px solid rgba(173, 216, 230, 0.8);
+            backdrop-filter: blur(2px);
+            transition: all 0.4s ease;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 40px rgba(173, 216, 230, 0.8);
+            border-color: rgba(173, 216, 230, 1);
+        }
+
+        .event-date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #8b4513;
+            text-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
+        }
+
+        .event-title {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2f4f4f;
+            line-height: 1.3;
+        }
+
+        .event-category {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .event-category.prehistoric { background: linear-gradient(45deg, #87ceeb, #b0e0e6); }
+        .event-category.shamanic { background: linear-gradient(45deg, #98fb98, #90ee90); }
+        .event-category.mythological { background: linear-gradient(45deg, #b0e0e6, #add8e6); }
+        .event-category.archetypal { background: linear-gradient(45deg, #90ee90, #98fb98); }
+        .event-category.philosophical { background: linear-gradient(45deg, #add8e6, #87ceeb); }
+        .event-category.scientific { background: linear-gradient(45deg, #98d8e8, #90ee90); }
+        .event-category.modern { background: linear-gradient(45deg, #87ceeb, #b0e0e6); }
+        .event-category.consciousness { background: linear-gradient(45deg, #b0e0e6, #98fb98); }
+
+        .event-overview {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(245, 245, 220, 0.6);
+            border-radius: 10px;
+            border-left: 4px solid #cd853f;
+        }
+
+        .event-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .event-description.expanded {
+            max-height: 600px;
+            margin-top: 20px;
+            overflow-y: auto;
+        }
+
+        .tab-container {
+            margin-top: 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            background: rgba(135, 206, 235, 0.1);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            color: #5a5a5a;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(45deg, #87ceeb, #b0e0e6);
+            color: white;
+            border-color: #87ceeb;
+        }
+
+        .tab-btn:hover {
+            background: rgba(135, 206, 235, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 15px;
+            background: rgba(245, 245, 220, 0.7);
+            border-radius: 10px;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h4 {
+            color: #8b4513;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .tab-content p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .event-description strong {
+            color: #8b4513;
+        }
+
+        .event-description em {
+            color: #cd853f;
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        .expand-btn {
+            background: linear-gradient(45deg, #87ceeb, #b0e0e6);
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+        }
+
+        .expand-btn:hover {
+            background: linear-gradient(45deg, #b0e0e6, #add8e6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(135, 206, 235, 0.4);
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(245, 245, 220, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 3px solid rgba(139, 69, 19, 0.5);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-event {
+                flex-direction: column !important;
+                align-items: center;
+                text-align: center;
+            }
+
+            .event-content {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .event-marker {
+                left: 25px;
+                transform: none;
+            }
+
+            .timeline-line {
+                left: 25px;
+                transform: none;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .timeline-container {
+                padding: 25px;
+            }
+
+            .legend {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="timeline-container">
+        <div class="header">
+            <h1>🧠 Evolution of Human Consciousness</h1>
+            <p>From Prehistoric Awareness to Modern Scientific Understanding<br>
+            Tracing the development of belief systems, archetypal patterns, and scientific thought</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker prehistoric">
+                    <div class="brain-icon">🧠
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">300,000-200,000 BCE</div>
+                        <div class="event-title">Emergence of Homo Sapiens</div>
+                        <div class="event-category prehistoric">Prehistoric Evolution</div>
+                        <div class="event-overview">
+                            Anatomically modern humans emerge in Africa, developing larger brains and symbolic thinking capabilities that distinguish them from earlier hominids.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-0')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-0')">Academic Research</button>
+                                </div>
+                                <div id="overview-0" class="tab-content active">
+                                    <strong>Anatomically modern humans</strong> emerge in Africa, developing larger brains and symbolic thinking. <em>Fossil evidence</em> from Jebel Irhoud and Omo Kibish shows the gradual evolution of modern human features. The development of <strong>symbolic consciousness</strong> marks humanity's departure from purely instinctual behavior, establishing the cognitive foundation for all future belief systems and mythological thinking.
+                                </div>
+                                <div id="research-0" class="tab-content">
+                                    <h4>Genetic Evidence</h4>
+                                    <p>Mitochondrial DNA studies suggest all modern humans descend from a common African ancestor ("Mitochondrial Eve") around 200,000 years ago.</p>
+                                    <h4>Cognitive Revolution</h4>
+                                    <p>Development of prefrontal cortex enabled abstract thinking, language, and symbolic representation - the foundation of all belief systems.</p>
+                                    <h4>Archaeological Markers</h4>
+                                    <p>Earliest evidence of ochre use for body painting (symbolic behavior) and sophisticated tool-making indicating planning and foresight.</p>
+                                    <h4>Neurological Basis</h4>
+                                    <p>Evolution of Broca's and Wernicke's areas enabled complex language, while enlarged temporal lobes supported memory and narrative thinking.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker prehistoric">
+                    <div class="brain-icon">🌍
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">70,000-60,000 BCE</div>
+                        <div class="event-title">Great Migration & Genetic Bottleneck</div>
+                        <div class="event-category prehistoric">Prehistoric Evolution</div>
+                        <div class="event-overview">
+                            Homo sapiens migrate out of Africa, creating distinct genetic lineages while encountering other hominids and surviving catastrophic population bottlenecks.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-1')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-1')">Academic Research</button>
+                                </div>
+                                <div id="overview-1" class="tab-content active">
+                                    <strong>Homo sapiens migrate</strong> out of Africa, creating distinct genetic lineages and encountering other hominids. The <em>Toba supervolcanic eruption</em> creates a population bottleneck that paradoxically accelerates cognitive evolution. This crisis forces enhanced cooperation, symbolic thinking, and the emergence of <strong>collective memory systems</strong> that become the foundation of human culture.
+                                </div>
+                                <div id="research-1" class="tab-content">
+                                    <h4>Population Bottleneck</h4>
+                                    <p>Toba supervolcanic eruption (~74,000 years ago) may have reduced human population to 3,000-10,000 individuals, creating genetic founder effects.</p>
+                                    <h4>Interbreeding Events</h4>
+                                    <p>DNA evidence shows interbreeding with Neanderthals (1-4% modern European/Asian DNA) and Denisovans (up to 6% in Melanesians).</p>
+                                    <h4>Adaptive Radiation</h4>
+                                    <p>Different environments led to genetic adaptations: high-altitude tolerance (Tibetans), lactose persistence (pastoralists), skin pigmentation variations.</p>
+                                    <h4>Cultural Implications</h4>
+                                    <p>Geographic isolation led to divergent mythological and belief systems, yet universal archetypes suggest shared cognitive architecture.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">🔮
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">45,000-40,000 BCE</div>
+                        <div class="event-title">🔮 Shamanic Revolution & Cave Art</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            First evidence of shamanic practices, altered consciousness, and spirit world communication through cave paintings and ritualistic behavior.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-2')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-2')">Academic Research</button>
+                                </div>
+                                <div id="overview-2" class="tab-content active">
+                                    First evidence of <strong>shamanic practices</strong>, altered consciousness, and spirit world communication through cave paintings and ritualistic behavior. <em>Therianthropic cave paintings</em> at Chauvet and Lascaux reveal humanity's first systematic exploration of altered consciousness. Shamanic practices emerge as the first <strong>technology of consciousness</strong>, establishing patterns that persist across all cultures.
+                                </div>
+                                <div id="research-2" class="tab-content">
+                                    <h4>Shamanic Trance States</h4>
+                                    <p>Cave paintings show therianthropes (human-animal hybrids) suggesting shamanic transformation experiences and spirit journeying.</p>
+                                    <h4>Entoptic Phenomena</h4>
+                                    <p>Geometric patterns in cave art match visual hallucinations from altered states - evidence of early consciousness exploration.</p>
+                                    <h4>Spirit Animal Guides</h4>
+                                    <p>Animal paintings likely represent power animals and spirit guides central to shamanic practice across all cultures.</p>
+                                    <h4>Burial Shamans</h4>
+                                    <p>Elaborate burials with animal bones, ochre, and ritual objects suggest specialized shamanic practitioners mediating between worlds.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">🌾
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">12,000-8,000 BCE</div>
+                        <div class="event-title">🌾 Neolithic Revolution & Universal Archetypes</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            Agriculture emerges independently worldwide, accompanied by remarkably similar mythological patterns and archetypal figures across isolated cultures.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-3a')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-3a')">Academic Research</button>
+                                </div>
+                                <div id="overview-3a" class="tab-content active">
+                                    <strong>Agriculture emerges independently</strong> worldwide, accompanied by remarkably similar mythological patterns and archetypal figures. The transition from hunter-gatherer to agricultural societies creates <em>universal mythological themes</em>: earth goddesses, seasonal death/rebirth cycles, and fertility rituals. This revolution establishes the <strong>archetypal foundation</strong> for all subsequent religious and mythological systems.
+                                </div>
+                                <div id="research-3a" class="tab-content">
+                                    <h4>Independent Agricultural Origins</h4>
+                                    <p>Agriculture develops independently in at least 11 regions worldwide, yet produces remarkably similar mythological and ritual patterns.</p>
+                                    <h4>Universal Earth Goddess</h4>
+                                    <p>Mother goddess figures emerge globally: Demeter (Greece), Ceres (Rome), Pachamama (Andes), Prithvi (India) - suggesting archetypal patterns.</p>
+                                    <h4>Seasonal Death/Rebirth Cycles</h4>
+                                    <p>Agricultural cycles create universal myths of dying/rising deities: Persephone, Osiris, Tammuz, Adonis - reflecting psychological archetypes.</p>
+                                    <h4>Fertility Rituals</h4>
+                                    <p>Sacred marriage ceremonies, harvest festivals, and planting rituals show identical patterns across isolated cultures.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">🌲
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">10,000-8,000 BCE</div>
+                        <div class="event-title">🌲 Baltic Witchcraft & Post-Glacial Traditions</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            After ice age retreat, Baltic peoples develop sophisticated nature-based magical practices, herbalism, and seasonal rituals that preserve ancient wisdom.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-3')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-3')">Academic Research</button>
+                                </div>
+                                <div id="overview-3" class="tab-content active">
+                                    After ice age retreat, <strong>Baltic peoples develop</strong> sophisticated nature-based magical practices, herbalism, and seasonal rituals. <em>Archaeological evidence</em> from Zvejnieki cemetery shows shamanic burials with amber amulets and ritual tools. These traditions establish the foundation of European witchcraft, preserving <strong>pre-Christian wisdom</strong> through oral traditions that survive into medieval times.
+                                </div>
+                                <div id="research-3" class="tab-content">
+                                    <h4>Forest Witchcraft</h4>
+                                    <p>Baltic shamans develop complex relationships with forest spirits, tree magic, and plant consciousness - foundation of European witchcraft traditions.</p>
+                                    <h4>Seasonal Mysteries</h4>
+                                    <p>Elaborate solstice and equinox rituals marking agricultural cycles - Beltane, Samhain, and other sabbats originate in these practices.</p>
+                                    <h4>Herbalism & Healing</h4>
+                                    <p>Sophisticated knowledge of medicinal plants, psychoactive fungi, and healing rituals passed down through oral tradition.</p>
+                                    <h4>Goddess Traditions</h4>
+                                    <p>Worship of Laima (fate), Žemyna (earth), and other Baltic goddesses preserves ancient feminine divine archetypes later suppressed by Christianity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker mythological">
+                    <div class="brain-icon">📜
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">3,500-3,000 BCE</div>
+                        <div class="event-title">📜 Sumerian Mythology & First Written Beliefs</div>
+                        <div class="event-category mythological">Mythological Systems</div>
+                        <div class="event-overview">
+                            First written mythologies emerge in Mesopotamia, codifying universal themes of creation, flood, and divine hierarchy in permanent cuneiform texts.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-4')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-4')">Academic Research</button>
+                                </div>
+                                <div id="overview-4" class="tab-content active">
+                                    <strong>First written mythologies</strong> emerge in Mesopotamia, codifying universal themes of creation, flood, and divine hierarchy. <em>Sumerian texts</em> like the Epic of Gilgamesh and Enuma Elish establish archetypal patterns that appear across all subsequent cultures. These stories encode <strong>fundamental psychological truths</strong> about consciousness, mortality, and the human condition through symbolic narrative.
+                                </div>
+                                <div id="research-4" class="tab-content">
+                                    <h4>Cuneiform Literature</h4>
+                                    <p>Earliest written mythologies preserve oral traditions dating back millennia, codifying universal archetypal patterns in permanent form.</p>
+                                    <h4>Creation Myths</h4>
+                                    <p>Enuma Elish establishes cosmic order through divine conflict - pattern repeated in Greek Titanomachy, Norse Ragnarok, and Hindu cosmic cycles.</p>
+                                    <h4>Flood Narratives</h4>
+                                    <p>Sumerian flood story (Utnapishtim) predates Biblical account, suggesting universal archetypal memory of catastrophic renewal.</p>
+                                    <h4>Divine Hierarchy</h4>
+                                    <p>Anu-Enlil-Ea triad establishes template for divine councils found in Canaanite, Greek, and other pantheons worldwide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker mythological">
+                    <div class="brain-icon">🕊️
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">3,000-1,200 BCE</div>
+                        <div class="event-title">🕊️ Canaanite Theology & Divine Council</div>
+                        <div class="event-category mythological">Mythological Systems</div>
+                        <div class="event-overview">
+                            Canaanite pantheon establishes divine council structure, El-Yahweh synthesis, and Asherah goddess worship that profoundly influences Hebrew theology.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-5')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-5')">Academic Research</button>
+                                </div>
+                                <div id="overview-5" class="tab-content active">
+                                    <strong>Canaanite pantheon</strong> establishes divine council structure, El-Yahweh synthesis, and Asherah goddess worship that profoundly influences Hebrew theology. <em>Ugaritic texts</em> reveal sophisticated theological concepts that shape monotheistic development. The divine feminine (Asherah) worship persists in folk religion, preserving <strong>goddess consciousness</strong> within emerging patriarchal frameworks.
+                                </div>
+                                <div id="research-5" class="tab-content">
+                                    <h4>Divine Council Structure</h4>
+                                    <p>El presides over divine assembly with 70 sons of God - template for Hebrew "sons of God" and angelic hierarchies in later Judaism.</p>
+                                    <h4>El-Yahweh Synthesis</h4>
+                                    <p>Archaeological evidence shows gradual merger of Canaanite El with Hebrew Yahweh, creating composite monotheistic deity.</p>
+                                    <h4>Asherah Worship</h4>
+                                    <p>Divine feminine consort of El appears in Hebrew inscriptions as "Yahweh and his Asherah" - suppressed but persistent goddess tradition.</p>
+                                    <h4>Mythological Influence</h4>
+                                    <p>Canaanite Baal cycle influences Hebrew psalms, divine warrior imagery, and cosmic battle narratives throughout biblical literature.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker mythological">
+                    <div class="brain-icon">🐍
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">1,200-586 BCE</div>
+                        <div class="event-title">🐍 Tribe of Dan & Serpent Wisdom</div>
+                        <div class="event-category mythological">Mythological Systems</div>
+                        <div class="event-overview">
+                            Danite tribe preserves ancient serpent wisdom, maritime mysteries, and esoteric knowledge that influences later Gnostic and mystical traditions.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-6')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-6')">Academic Research</button>
+                                </div>
+                                <div id="overview-6" class="tab-content active">
+                                    <strong>Danite tribe</strong> preserves ancient serpent wisdom, maritime mysteries, and esoteric knowledge that influences later Gnostic and mystical traditions. <em>Biblical archaeology</em> reveals Danite settlements with serpent imagery and sea-faring culture. Their <strong>esoteric knowledge systems</strong> preserve ancient wisdom about consciousness transformation through diaspora networks.
+                                </div>
+                                <div id="research-6" class="tab-content">
+                                    <h4>Serpent Symbolism</h4>
+                                    <p>Dan's tribal symbol (serpent) connects to ancient wisdom traditions: Nehushtan bronze serpent, healing serpents, and kundalini-like consciousness concepts.</p>
+                                    <h4>Maritime Culture</h4>
+                                    <p>Danite sea-faring activities spread esoteric knowledge throughout Mediterranean, influencing Phoenician and later Hermetic traditions.</p>
+                                    <h4>Esoteric Preservation</h4>
+                                    <p>Danite diaspora maintains ancient wisdom traditions outside mainstream Hebrew religion, later influencing Gnostic and Kabbalistic thought.</p>
+                                    <h4>Archaeological Evidence</h4>
+                                    <p>Danite settlements show syncretistic religious practices, preserving pre-Israelite Canaanite and Egyptian mystery traditions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker philosophical">
+                    <div class="brain-icon">⚡
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">800-200 BCE</div>
+                        <div class="event-title">⚡ Axial Age: Birth of Philosophy</div>
+                        <div class="event-category philosophical">Philosophical Revolution</div>
+                        <div class="event-overview">
+                            Simultaneous emergence of rational philosophy across civilizations: Buddha, Confucius, Greek philosophers, Hebrew prophets develop metacognitive awareness.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-7')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-7')">Academic Research</button>
+                                </div>
+                                <div id="overview-7" class="tab-content active">
+                                    <strong>Simultaneous emergence</strong> of rational philosophy across civilizations: Buddha, Confucius, Greek philosophers, Hebrew prophets. <em>Karl Jaspers' Axial Age</em> represents a fundamental shift in human consciousness - the emergence of <strong>metacognitive awareness</strong> and abstract reasoning that transcends mythological thinking while preserving archetypal wisdom.
+                                </div>
+                                <div id="research-7" class="tab-content">
+                                    <h4>Global Synchronicity</h4>
+                                    <p>Independent emergence of rational thinking in China (Confucius, Laozi), India (Buddha, Upanishads), Persia (Zoroaster), Greece (Pre-Socratics), and Israel (Prophets).</p>
+                                    <h4>Metacognitive Revolution</h4>
+                                    <p>Development of "thinking about thinking" - self-reflective consciousness that questions assumptions and examines belief systems.</p>
+                                    <h4>Transcendent Perspective</h4>
+                                    <p>Shift from tribal/mythological worldview to universal ethical principles and abstract philosophical concepts.</p>
+                                    <h4>Neurological Basis</h4>
+                                    <p>Possible evolutionary development in prefrontal cortex enabling higher-order abstract reasoning and moral reflection.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker scientific">
+                    <div class="brain-icon">🔬
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">600-300 BCE</div>
+                        <div class="event-title">🔬 Pre-Socratic Natural Philosophy</div>
+                        <div class="event-category scientific">Scientific Thought</div>
+                        <div class="event-overview">
+                            Greek philosophers begin explaining natural phenomena through reason rather than mythology, laying foundations for scientific method and natural law.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-8')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-8')">Academic Research</button>
+                                </div>
+                                <div id="overview-8" class="tab-content active">
+                                    <strong>Greek philosophers</strong> begin explaining natural phenomena through reason rather than mythology, laying foundations for scientific method. <em>Thales, Anaximander, and Democritus</em> propose natural causes for natural effects, establishing the principle that the universe operates according to <strong>discoverable laws</strong> rather than divine whim.
+                                </div>
+                                <div id="research-8" class="tab-content">
+                                    <h4>Natural Causation</h4>
+                                    <p>Thales proposes water as fundamental substance, Anaximenes suggests air - first attempts at unified natural explanations.</p>
+                                    <h4>Atomic Theory</h4>
+                                    <p>Democritus develops atomic theory 2000 years before modern chemistry - matter composed of indivisible particles in void.</p>
+                                    <h4>Mathematical Principles</h4>
+                                    <p>Pythagoras discovers mathematical relationships in nature - "all is number" - foundation for mathematical physics.</p>
+                                    <h4>Empirical Observation</h4>
+                                    <p>Shift from mythological explanation to systematic observation and logical reasoning about natural phenomena.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker philosophical">
+                    <div class="brain-icon">🏛️
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">470-322 BCE</div>
+                        <div class="event-title">🏛️ Classical Greek Philosophy</div>
+                        <div class="event-category philosophical">Philosophical Revolution</div>
+                        <div class="event-overview">
+                            Socrates, Plato, and Aristotle establish systematic approaches to knowledge, ethics, and reality that shape Western thought for millennia.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-9')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-9')">Academic Research</button>
+                                </div>
+                                <div id="overview-9" class="tab-content active">
+                                    <strong>Socrates, Plato, and Aristotle</strong> establish systematic approaches to knowledge, ethics, and reality that shape Western thought. <em>Socratic method</em> and Platonic idealism establish rational inquiry while preserving mystical insights. <strong>Platonic forms</strong> serve as rational expressions of Jungian archetypes, bridging mythological and scientific consciousness.
+                                </div>
+                                <div id="research-9" class="tab-content">
+                                    <h4>Socratic Method</h4>
+                                    <p>Systematic questioning reveals assumptions and contradictions - foundation for critical thinking and scientific skepticism.</p>
+                                    <h4>Platonic Idealism</h4>
+                                    <p>Theory of Forms provides rational framework for archetypal patterns - perfect mathematical and moral realities behind appearances.</p>
+                                    <h4>Aristotelian Logic</h4>
+                                    <p>Formal logic, categories of being, and empirical observation create systematic framework for knowledge acquisition.</p>
+                                    <h4>Ethical Philosophy</h4>
+                                    <p>Development of virtue ethics, political theory, and systematic approaches to human flourishing and social organization.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">🌳
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">100-1300 CE</div>
+                        <div class="event-title">🌳 Kabbalah & Jewish Mysticism</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            Jewish mystical tradition develops Tree of Life, Sefirot system, and divine emanation theory synthesizing ancient wisdom with monotheistic theology.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-10')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-10')">Academic Research</button>
+                                </div>
+                                <div id="overview-10" class="tab-content active">
+                                    <strong>Jewish mystical tradition</strong> develops Tree of Life, Sefirot system, and divine emanation theory synthesizing ancient wisdom with monotheistic theology. <em>Kabbalistic texts</em> preserve esoteric knowledge while providing systematic approaches to consciousness expansion. The <strong>Shekinah doctrine</strong> maintains divine feminine consciousness within patriarchal frameworks.
+                                </div>
+                                <div id="research-10" class="tab-content">
+                                    <h4>Sefirot System</h4>
+                                    <p>Ten divine emanations map consciousness levels from material to spiritual - psychological and cosmological framework.</p>
+                                    <h4>Tree of Life</h4>
+                                    <p>Systematic diagram of divine emanation and human consciousness development - influences later Western esoteric traditions.</p>
+                                    <h4>Shekinah Doctrine</h4>
+                                    <p>Divine feminine presence preserves goddess consciousness within monotheistic framework - mystical union and divine immanence.</p>
+                                    <h4>Meditation Techniques</h4>
+                                    <p>Letter permutation, visualization, and contemplative practices for consciousness expansion and spiritual transformation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">⚗️
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">300-1700 CE</div>
+                        <div class="event-title">⚗️ Alchemy & Hermetic Traditions</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            Alchemical practices synthesize ancient wisdom, proto-chemistry, and psychological transformation through symbolic language and laboratory work.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-11')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-11')">Academic Research</button>
+                                </div>
+                                <div id="overview-11" class="tab-content active">
+                                    <strong>Alchemical practices</strong> synthesize ancient wisdom, proto-chemistry, and psychological transformation through symbolic language and laboratory work. <em>Hermetic traditions</em> bridge mysticism and early chemistry, preserving ancient wisdom while developing experimental methods. The <strong>Emerald Tablet</strong> encodes principles of correspondence between mind and matter.
+                                </div>
+                                <div id="research-11" class="tab-content">
+                                    <h4>Hermetic Philosophy</h4>
+                                    <p>"As above, so below" - principle of correspondence between macrocosm and microcosm, mind and matter, spiritual and physical.</p>
+                                    <h4>Psychological Alchemy</h4>
+                                    <p>Jung's analysis reveals alchemical symbolism as projection of individuation process - psychological transformation through symbolic work.</p>
+                                    <h4>Proto-Chemistry</h4>
+                                    <p>Alchemical experiments develop laboratory techniques, chemical knowledge, and experimental methodology leading to modern chemistry.</p>
+                                    <h4>Symbolic Language</h4>
+                                    <p>Alchemical symbols encode both chemical processes and psychological states - dual material/spiritual transformation system.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">✝️
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">4 BCE - 30 CE</div>
+                        <div class="event-title">✝️ Christ Archetype & Universal Themes</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            Jesus embodies universal archetypal patterns: dying/rising god, sacrificial hero, divine child - synthesizing ancient themes in historical context.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-12')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-12')">Academic Research</button>
+                                </div>
+                                <div id="overview-12" class="tab-content active">
+                                    <strong>Jesus embodies</strong> universal archetypal patterns: dying/rising god, sacrificial hero, divine child - synthesizing ancient themes. <em>Comparative mythology</em> reveals Christ story follows universal patterns found in Osiris, Dionysus, Mithras, and other savior figures. This represents the <strong>archetypal hero's journey</strong> in historical context.
+                                </div>
+                                <div id="research-12" class="tab-content">
+                                    <h4>Dying/Rising God</h4>
+                                    <p>Death and resurrection pattern appears in Osiris, Dionysus, Attis, Adonis - universal archetypal theme of renewal and transformation.</p>
+                                    <h4>Virgin Birth Motif</h4>
+                                    <p>Divine child born of virgin mother appears globally: Horus, Krishna, Buddha, Mithra - archetypal pattern of spiritual emergence.</p>
+                                    <h4>Sacrificial Hero</h4>
+                                    <p>Self-sacrifice for humanity's salvation reflects universal hero archetype - individual transcendence for collective benefit.</p>
+                                    <h4>Synthesis Function</h4>
+                                    <p>Christ figure synthesizes Jewish monotheism with Hellenistic mystery religions, creating new archetypal constellation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker scientific">
+                    <div class="brain-icon">🐒
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">1859-1871 CE</div>
+                        <div class="event-title">🐒 Darwin's Evolution & Human Origins</div>
+                        <div class="event-category scientific">Scientific Thought</div>
+                        <div class="event-overview">
+                            Darwin's theory of evolution challenges special creation, placing humans within natural history and biological continuity with all life.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-13')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-13')">Academic Research</button>
+                                </div>
+                                <div id="overview-13" class="tab-content active">
+                                    <strong>Darwin's theory of evolution</strong> challenges special creation, placing humans within natural history and biological continuity. <em>Origin of Species</em> reveals consciousness itself as an evolutionary phenomenon, connecting human awareness to the broader cosmic process. This insight bridges scientific materialism with ancient wisdom about humanity's place in the <strong>cosmic order</strong>.
+                                </div>
+                                <div id="research-13" class="tab-content">
+                                    <h4>Natural Selection</h4>
+                                    <p>Mechanism of evolution through differential survival and reproduction - consciousness emerges through natural processes.</p>
+                                    <h4>Human Descent</h4>
+                                    <p>"Descent of Man" places human consciousness within evolutionary continuum - no special creation required.</p>
+                                    <h4>Consciousness Evolution</h4>
+                                    <p>Mental faculties evolve gradually from simple to complex - consciousness as emergent property of neural complexity.</p>
+                                    <h4>Philosophical Impact</h4>
+                                    <p>Challenges anthropocentric worldview while confirming ancient insights about humanity's connection to nature.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">🧠
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">1900-1961 CE</div>
+                        <div class="event-title">🧠 Jung's Analytical Psychology</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            Carl Jung develops theory of collective unconscious and archetypes, providing scientific framework for universal mythological patterns.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-14')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-14')">Academic Research</button>
+                                </div>
+                                <div id="overview-14" class="tab-content active">
+                                    <strong>Carl Jung develops</strong> theory of collective unconscious and archetypes, providing scientific framework for universal mythological patterns. <em>Neuroimaging research</em> now confirms archetypal structures in brain organization. Jung's work bridges depth psychology with anthropology, showing how <strong>universal symbols</strong> emerge from shared neural architecture and evolutionary history.
+                                </div>
+                                <div id="research-14" class="tab-content">
+                                    <h4>Collective Unconscious</h4>
+                                    <p>Shared psychic substrate containing universal patterns - inherited psychological structures common to all humanity.</p>
+                                    <h4>Archetypal Theory</h4>
+                                    <p>Universal symbols and patterns appearing across cultures - Mother, Father, Hero, Shadow, Anima/Animus, Self archetypes.</p>
+                                    <h4>Individuation Process</h4>
+                                    <p>Psychological development toward wholeness through integration of unconscious contents - modern version of ancient initiation.</p>
+                                    <h4>Neurological Validation</h4>
+                                    <p>Modern brain imaging confirms archetypal patterns in neural organization and cross-cultural symbol recognition.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker scientific">
+                    <div class="brain-icon">⚛️
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">1905-1955 CE</div>
+                        <div class="event-title">⚛️ Quantum Physics & Relativity</div>
+                        <div class="event-category scientific">Scientific Thought</div>
+                        <div class="event-overview">
+                            Einstein and quantum pioneers revolutionize physics, challenging deterministic worldview and introducing observer effects in reality.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-15')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-15')">Academic Research</button>
+                                </div>
+                                <div id="overview-15" class="tab-content active">
+                                    <strong>Einstein and quantum pioneers</strong> revolutionize physics, challenging deterministic worldview and introducing observer effects. <em>Quantum mechanics</em> reveals the fundamental role of consciousness in physical reality, while relativity shows the observer-dependent nature of space and time. These discoveries echo ancient mystical insights about the <strong>participatory universe</strong>.
+                                </div>
+                                <div id="research-15" class="tab-content">
+                                    <h4>Observer Effect</h4>
+                                    <p>Quantum measurement problem suggests consciousness plays fundamental role in physical reality - observer affects observed.</p>
+                                    <h4>Relativity Theory</h4>
+                                    <p>Space and time are observer-dependent - no absolute reference frame, reality depends on perspective.</p>
+                                    <h4>Uncertainty Principle</h4>
+                                    <p>Fundamental limits to simultaneous knowledge of complementary properties - reality is probabilistic, not deterministic.</p>
+                                    <h4>Mystical Parallels</h4>
+                                    <p>Quantum insights parallel ancient mystical teachings about consciousness, reality, and the participatory nature of existence.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker scientific">
+                    <div class="brain-icon">🧬
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">1953-2003 CE</div>
+                        <div class="event-title">🧬 DNA Discovery & Human Genome</div>
+                        <div class="event-category scientific">Scientific Thought</div>
+                        <div class="event-overview">
+                            Watson, Crick discover DNA structure; Human Genome Project maps genetic basis of human nature and evolutionary history.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-16')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-16')">Academic Research</button>
+                                </div>
+                                <div id="overview-16" class="tab-content active">
+                                    <strong>Watson and Crick's discovery</strong> of DNA's double helix structure revolutionizes biology, revealing the molecular basis of heredity and evolution. The <em>Human Genome Project</em> maps our complete genetic blueprint, showing how consciousness and behavior emerge from biochemical processes. This molecular understanding bridges ancient wisdom about human nature with <strong>precise scientific knowledge</strong> of our biological foundations.
+                                </div>
+                                <div id="research-16" class="tab-content">
+                                    <h4>Genetic Code</h4>
+                                    <p>DNA's four-letter alphabet (A, T, G, C) encodes all biological information - the molecular basis of life and consciousness.</p>
+                                    <h4>Human Genome Mapping</h4>
+                                    <p>Complete sequencing reveals 3 billion base pairs containing instructions for human development, behavior, and consciousness.</p>
+                                    <h4>Evolutionary History</h4>
+                                    <p>Genetic analysis confirms human evolution, migration patterns, and relationship to other species through molecular evidence.</p>
+                                    <h4>Consciousness Genetics</h4>
+                                    <p>Identification of genes affecting neurotransmitters, brain development, and cognitive abilities - biological basis of consciousness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker scientific">
+                    <div class="brain-icon">🧠
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">1990s-2020s CE</div>
+                        <div class="event-title">🧠 Neuroscience & Brain Imaging</div>
+                        <div class="event-category scientific">Scientific Thought</div>
+                        <div class="event-overview">
+                            fMRI, PET scans, and advanced neuroscience reveal biological basis of consciousness, emotion, and spiritual experience.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-17')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-17')">Academic Research</button>
+                                </div>
+                                <div id="overview-17" class="tab-content active">
+                                    <strong>Advanced brain imaging technologies</strong> like fMRI and PET scans allow real-time observation of consciousness in action. <em>Neuroscience research</em> reveals the biological basis of emotions, decision-making, and even spiritual experiences. This scientific understanding of consciousness validates ancient insights while providing <strong>precise neural correlates</strong> for mystical and archetypal experiences.
+                                </div>
+                                <div id="research-17" class="tab-content">
+                                    <h4>Brain Imaging Technology</h4>
+                                    <p>fMRI, PET, and EEG allow real-time observation of neural activity during consciousness, meditation, and spiritual experiences.</p>
+                                    <h4>Neural Networks</h4>
+                                    <p>Discovery of default mode network, attention networks, and consciousness-related brain circuits - mapping the neural basis of awareness.</p>
+                                    <h4>Spiritual Neuroscience</h4>
+                                    <p>Brain scans of meditators and mystics reveal specific neural patterns during transcendent experiences - biological basis of spirituality.</p>
+                                    <h4>Consciousness Studies</h4>
+                                    <p>Integration of neuroscience with psychology and philosophy creates new field studying the "hard problem" of consciousness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">🍄
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">1960s-Present</div>
+                        <div class="event-title">🍄 Psychedelic Renaissance & Consciousness Research</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            Scientific study of psychedelics reveals neurochemical basis of mystical experience and archetypal encounters in controlled settings.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-18')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-18')">Academic Research</button>
+                                </div>
+                                <div id="overview-18" class="tab-content active">
+                                    <strong>Scientific research into psychedelics</strong> reveals the neurochemical basis of mystical experiences and archetypal encounters. <em>Studies at Johns Hopkins, Imperial College, and other institutions</em> show how substances like psilocybin and LSD temporarily alter brain networks to produce profound spiritual experiences. This research validates ancient shamanic practices while providing <strong>scientific understanding</strong> of consciousness-altering technologies.
+                                </div>
+                                <div id="research-18" class="tab-content">
+                                    <h4>Neurochemical Mechanisms</h4>
+                                    <p>Psychedelics affect serotonin 2A receptors, disrupting default mode network and enabling novel neural connections.</p>
+                                    <h4>Mystical Experience Research</h4>
+                                    <p>Controlled studies show psychedelics reliably produce mystical experiences with lasting positive effects on well-being and spirituality.</p>
+                                    <h4>Archetypal Encounters</h4>
+                                    <p>Research documents consistent archetypal imagery and entities encountered across cultures during psychedelic experiences.</p>
+                                    <h4>Therapeutic Applications</h4>
+                                    <p>Clinical trials show psychedelic-assisted therapy effective for depression, PTSD, and addiction through consciousness transformation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event left" onclick="toggleExpand(this)">
+                <div class="event-marker scientific">
+                    <div class="brain-icon">🤖
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">2010s-Present</div>
+                        <div class="event-title">🤖 Artificial Intelligence & Machine Consciousness</div>
+                        <div class="event-category scientific">Scientific Thought</div>
+                        <div class="event-overview">
+                            AI development forces reconsideration of consciousness, intelligence, and what makes humans unique in the cosmos.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-19')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-19')">Academic Research</button>
+                                </div>
+                                <div id="overview-19" class="tab-content active">
+                                    <strong>Artificial Intelligence development</strong> forces humanity to reconsider the nature of consciousness, intelligence, and what makes us unique. <em>Large language models and neural networks</em> exhibit increasingly sophisticated behavior, raising questions about machine consciousness. This technological mirror reflects back ancient questions about the nature of mind while potentially creating <strong>new forms of consciousness</strong> beyond biological evolution.
+                                </div>
+                                <div id="research-19" class="tab-content">
+                                    <h4>Machine Learning</h4>
+                                    <p>Neural networks mimic brain structure, leading to emergent behaviors that challenge definitions of intelligence and consciousness.</p>
+                                    <h4>Consciousness Tests</h4>
+                                    <p>Development of tests for machine consciousness - Turing test, integrated information theory, global workspace theory applications.</p>
+                                    <h4>Human Uniqueness</h4>
+                                    <p>AI capabilities force redefinition of human uniqueness - creativity, emotion, spirituality, and consciousness become central questions.</p>
+                                    <h4>Technological Singularity</h4>
+                                    <p>Potential emergence of artificial general intelligence raises questions about the future evolution of consciousness itself.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-event right" onclick="toggleExpand(this)">
+                <div class="event-marker archetypal">
+                    <div class="brain-icon">🌐
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <div class="event-card">
+                        <div class="event-date">Present Day</div>
+                        <div class="event-title">🌐 Global Consciousness & Digital Mythology</div>
+                        <div class="event-category archetypal">Archetypal Emergence</div>
+                        <div class="event-overview">
+                            Internet creates global nervous system while ancient archetypal patterns manifest in digital culture, memes, and virtual realities.
+                        </div>
+                        <button class="expand-btn">Learn More ▼</button>
+                        <div class="event-description">
+                            <div class="tab-container">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" onclick="switchTab(this, 'overview-20')">Detailed Overview</button>
+                                    <button class="tab-btn" onclick="switchTab(this, 'research-20')">Academic Research</button>
+                                </div>
+                                <div id="overview-20" class="tab-content active">
+                                    <strong>The Internet creates</strong> a global nervous system connecting human consciousness worldwide, while ancient archetypal patterns manifest in digital culture, memes, and virtual realities. <em>Social media and digital platforms</em> become new spaces for mythological expression and collective unconscious manifestation. This represents the emergence of <strong>planetary consciousness</strong> through technological interconnection of human minds.
+                                </div>
+                                <div id="research-20" class="tab-content">
+                                    <h4>Global Brain Theory</h4>
+                                    <p>Internet functions as planetary nervous system, connecting human minds in unprecedented global consciousness network.</p>
+                                    <h4>Digital Archetypes</h4>
+                                    <p>Ancient archetypal patterns manifest in memes, viral content, and digital mythologies - collective unconscious in cyberspace.</p>
+                                    <h4>Virtual Reality</h4>
+                                    <p>VR and AR technologies create new spaces for consciousness exploration and archetypal encounter in digital realms.</p>
+                                    <h4>Collective Intelligence</h4>
+                                    <p>Crowdsourcing, wikis, and collaborative platforms demonstrate emergence of collective problem-solving and group consciousness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #87ceeb;"></div>
+                <span>Prehistoric Evolution</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #98fb98;"></div>
+                <span>Shamanic Traditions</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #b0e0e6;"></div>
+                <span>Mythological Systems</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #90ee90;"></div>
+                <span>Archetypal Emergence</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #add8e6;"></div>
+                <span>Philosophical Revolution</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #98d8e8;"></div>
+                <span>Scientific Thought</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #87ceeb;"></div>
+                <span>Modern Science</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #b0e0e6;"></div>
+                <span>Consciousness Research</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleExpand(eventElement) {
+            // Only toggle if the click was on the expand button or the event card itself
+            // Don't toggle if clicking on tab buttons or other interactive elements
+            if (event.target.classList.contains('tab-btn') || 
+                event.target.closest('.tab-btn') ||
+                event.target.closest('.tab-content')) {
+                return;
+            }
+            
+            const description = eventElement.querySelector('.event-description');
+            const button = eventElement.querySelector('.expand-btn');
+            
+            if (description.classList.contains('expanded')) {
+                description.classList.remove('expanded');
+                button.innerHTML = 'Learn More ▼';
+            } else {
+                // Expand this description
+                description.classList.add('expanded');
+                button.innerHTML = 'Close ▲';
+                
+                // Smooth scroll to the event
+                eventElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }
+        }
+
+        function switchTab(buttonElement, tabId) {
+            // Get the parent tab container
+            const tabContainer = buttonElement.closest('.tab-container');
+            
+            // Remove active class from all tab buttons in this container
+            tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            buttonElement.classList.add('active');
+            
+            // Hide all tab contents in this container
+            tabContainer.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Add entrance animations with staggered effect
+        window.addEventListener('load', () => {
+            const events = document.querySelectorAll('.timeline-event');
+            events.forEach((event, index) => {
+                event.style.opacity = '0';
+                event.style.transform = 'translateY(50px)';
+                
+                setTimeout(() => {
+                    event.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    event.style.opacity = '1';
+                    event.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Add subtle floating animation to markers
+            const markers = document.querySelectorAll('.event-marker');
+            markers.forEach(marker => {
+                marker.style.animation = 'float 4s ease-in-out infinite';
+            });
+        });
+
+        // Add floating keyframe animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateX(-50%) translateY(0px); }
+                50% { transform: translateX(-50%) translateY(-3px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97f4aa0af3152c12',t:'MTc1NzkwMzAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+
