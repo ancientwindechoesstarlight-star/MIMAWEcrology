@@ -51,6 +51,15 @@
       margin: 0.5em 0;
     }
 
+    .more-content {
+      display: none;
+      margin-top: 1em;
+      padding: 1em;
+      background-color: #f5f5f5;
+      border-left: 4px solid #b7b7b7;
+      border-radius: 6px;
+    }
+
     button {
       margin-top: 0.5em;
       background-color: #a3b18a;
@@ -60,21 +69,6 @@
       border-radius: 4px;
       cursor: pointer;
       font-family: 'Cinzel', serif;
-    }
-
-    #journal {
-      margin-top: 3em;
-      padding: 2em;
-      background-color: #f0f0f0;
-      border-top: 2px solid #a3b18a;
-    }
-
-    .entry {
-      margin-bottom: 1.5em;
-      padding: 1em;
-      border: 1px dashed #a3b18a;
-      border-radius: 6px;
-      background-color: #fff;
     }
 
     footer {
@@ -95,60 +89,60 @@
   <div class="era">
     <h3>Dominant Consciousness</h3>
     <p>Embodied cognition, survival instinct, no formal symbolic systems.</p>
-    <h3>Key Notes</h3>
-    <p>Emergence of Homo sapiens. Post–ice age genetic bottleneck. Foundations of sensory awareness.</p>
-    <button onclick="saveToJournal('Pre-Symbolic Era', 'Embodied cognition, survival instinct, no formal symbolic systems. Genetic bottleneck and emergence of Homo sapiens.')">Save to Journal</button>
+    <button onclick="toggleContent('preSymbolic')">Learn More</button>
+    <div id="preSymbolic" class="more-content">
+      <p>Emergence of Homo sapiens. Post–ice age genetic bottleneck. Foundations of sensory awareness and proto-consciousness.</p>
+    </div>
   </div>
 
   <h2>Symbolic Awakening (~70,000–10,000 BCE)</h2>
   <div class="era">
     <h3>Dominant Consciousness</h3>
     <p>Animism, shamanic ritual, symbolic externalization.</p>
-    <h3>Key Notes</h3>
-    <p>Burial rites, ochre, Venus figurines. Löwenmensch sculpture. First mythic representations.</p>
-    <button onclick="saveToJournal('Symbolic Awakening', 'Animism, shamanic ritual, symbolic externalization. Burial rites and mythic figurines.')">Save to Journal</button>
+    <button onclick="toggleContent('symbolicAwakening')">Learn More</button>
+    <div id="symbolicAwakening" class="more-content">
+      <p>Burial rites, ochre, Venus figurines. Löwenmensch sculpture. First mythic representations and ritual cognition.</p>
+    </div>
   </div>
 
   <h2>Agrarian Mythic Age (~10,000–3000 BCE)</h2>
   <div class="era">
     <h3>Dominant Consciousness</h3>
     <p>Cycle-based ritual, divine order, fertility worship.</p>
-    <h3>Key Notes</h3>
-    <p>Rise of agriculture. Canaanite theology. Tribe of Dan. Temple systems and sacred calendars.</p>
-    <button onclick="saveToJournal('Agrarian Mythic Age', 'Cycle-based ritual, divine order, fertility worship. Canaanite theology and temple systems.')">Save to Journal</button>
+    <button onclick="toggleContent('agrarianAge')">Learn More</button>
+    <div id="agrarianAge" class="more-content">
+      <p>Rise of agriculture. Canaanite theology. Tribe of Dan. Temple systems and sacred calendars. Consciousness tied to land and seasonal cycles.</p>
+    </div>
   </div>
-
-  <!-- Add more eras here as you expand -->
 
   <h2>Digital Awakening (2000–2010 CE)</h2>
   <div class="era">
     <h3>Dominant Consciousness</h3>
     <p>Virtual identity, global connectivity, symbolic recursion begins.</p>
-    <h3>Key Notes</h3>
-    <p>Internet as nervous system. Early AI. Psychedelic research revival. Consciousness externalized through data.</p>
-    <button onclick="saveToJournal('Digital Awakening', 'Virtual identity, global connectivity, symbolic recursion begins. Internet as nervous system and early AI.')">Save to Journal</button>
+    <button onclick="toggleContent('digitalAwakening')">Learn More</button>
+    <div id="digitalAwakening" class="more-content">
+      <p>Internet as nervous system. Early AI. Psychedelic research revival. Consciousness externalized through data and digital ritual.</p>
+    </div>
   </div>
 
   <h2>Synthetic Cognition (2010–2020 CE)</h2>
   <div class="era">
     <h3>Dominant Consciousness</h3>
     <p>Programmable mind, editable biology, symbolic intelligence.</p>
-    <h3>Key Notes</h3>
-    <p>Deep learning, CRISPR, quantum computing. Psychedelics in mainstream science. Consciousness as editable system.</p>
-    <button onclick="saveToJournal('Synthetic Cognition', 'Programmable mind, editable biology, symbolic intelligence. Deep learning and CRISPR.')">Save to Journal</button>
+    <button onclick="toggleContent('syntheticCognition')">Learn More</button>
+    <div id="syntheticCognition" class="more-content">
+      <p>Deep learning, CRISPR, quantum computing. Psychedelics in mainstream science. Consciousness as editable system and symbolic interface.</p>
+    </div>
   </div>
 
   <h2>Recursive Intelligence (2020–2025 CE)</h2>
   <div class="era">
     <h3>Dominant Consciousness</h3>
     <p>Integrative synthesis, mythic language returns, spiral cognition.</p>
-    <h3>Key Notes</h3>
-    <p>Generative AI, quantum breakthroughs, sacred synthesis. Rise of frameworks like MIMAWEcrology.</p>
-    <button onclick="saveToJournal('Recursive Intelligence', 'Integrative synthesis, mythic language returns, spiral cognition. Generative AI and sacred synthesis.')">Save to Journal</button>
-  </div>
-
-  <div id="journal">
-    <h2>Your Journal</h2>
+    <button onclick="toggleContent('recursiveIntelligence')">Learn More</button>
+    <div id="recursiveIntelligence" class="more-content">
+      <p>Generative AI, quantum breakthroughs, sacred synthesis. Rise of frameworks like MIMAWEcrology. Consciousness as recursive, reverent, and symbolic.</p>
+    </div>
   </div>
 
   <footer>
@@ -156,14 +150,10 @@
   </footer>
 
   <script>
-    function saveToJournal(title, content) {
-      const journal = document.getElementById("journal");
-      const entry = document.createElement("div");
-      entry.className = "entry";
-      entry.innerHTML = `<strong>${title}</strong><p>${content}</p><small>Saved on: ${new Date().toLocaleDateString()}</small>`;
-      journal.appendChild(entry);
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === "none" ? "block" : "none";
     }
   </script>
 </body>
 </html>
-
